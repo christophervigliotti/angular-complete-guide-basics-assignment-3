@@ -24,14 +24,6 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
   }
 
-  onDisplayToggle(event: any){
-    // console.log('onDisplayToggle()');
-    this.doDisplayParagraph = !this.doDisplayParagraph;
-    // console.log(' - this.doDisplayParagraph ' + this.doDisplayParagraph);
-    this.logHandler();
-    
-  }
-
   logHandler(){
     var count = this.buttonPressLog.length + 1;
     var logMessage = '';
@@ -46,6 +38,14 @@ export class AppComponent implements OnInit{
     p.innerHTML = logMessage;
     this.renderer.appendChild(this.div.nativeElement, p);
 
+  }
+
+  onDisplayToggle(event: any){
+    // console.log('onDisplayToggle()');
+    this.doDisplayParagraph = !this.doDisplayParagraph;
+    // console.log(' - this.doDisplayParagraph ' + this.doDisplayParagraph);
+    this.logHandler();
+    
   }
 
   ordinal(n) {

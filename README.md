@@ -8,6 +8,9 @@
 4. Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)
 5. Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)
 
+## Notes
+- appendChild example https://stackblitz.com/edit/angular-append-to-element?file=src%2Fapp%2Fapp.component.ts 
+
 ## Up And Running!
 
 https://bit.ly/32r25z2

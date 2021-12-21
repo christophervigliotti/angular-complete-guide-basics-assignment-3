@@ -8,7 +8,7 @@
         <li><em>DONE&nbsp;</em>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
         <li><em>DONE&nbsp;</em>Toggle the displaying of that paragraph with the button created in the first step</li>
         <li><em>DONE&nbsp;</em>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
-        <li><em>DONE&nbsp;</em>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+        <li><em>WIP&nbsp;</em>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
       </ol>
   </div>
   <h2>A Thing</h2>
@@ -16,14 +16,25 @@
     class="btn btn-primary"
     (click)="onDisplayToggle()" 
   >
-    Toggle the display of a paragraph of text.
+
+  Toggle the display of a paragraph of text.
   </button>
   <p>doDisplayParagraph = <strong>{{doDisplayParagraph}}</strong></p>
   <p *ngIf="doDisplayParagraph">
     PLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </p>
   <h2>Logs A Thing</h2>
+  <!--
+  this was my original solution for logging...  
   <div class="test">
     <div class="another-test" #div></div>
+  </div>
+  -->
+  <div 
+    *ngFor="let logItem of buttonPressLog" 
+    [ngStyle]="{backgroundColor: logItem >= 5 ? 'blue' : 'transparent'}"  
+    [ngClass]="{'white-text':logItem >= 5}"
+  >
+    {{ logItem }}
   </div>
 </div>

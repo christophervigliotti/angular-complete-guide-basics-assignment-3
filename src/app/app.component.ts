@@ -24,28 +24,35 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
   }
 
+  
   logHandler(){
+
     var count = this.buttonPressLog.length + 1;
     var logMessage = '';
-    // logMessage = 'The button was pressed ' + count + ((count == 1)?' time':' times');
-    logMessage = 'The button was pressed for the ' + this.ordinal(count) + ' time';
-    logMessage = (count > 4)?('<div style="color:red;">' + logMessage + '!</div>'):logMessage + '.';
-    console.log(logMessage);
-    this.buttonPressLog.push(logMessage);
-    // this.htmlToAdd = logMessage;
 
+    // get the display message rolling 
+    logMessage = 'The button was pressed for the ' + this.ordinal(count) + ' time';
+    // works with v1...logMessage = (count > 4)?('<div style="color:red;">' + logMessage + '!</div>'):logMessage + '.';
+
+    // write to the array
+    this.buttonPressLog.push(logMessage);
+    /*
+    this was my original solution for logging...
+    // append the text
     const p: HTMLParagraphElement = this.renderer.createElement('p');
     p.innerHTML = logMessage;
     this.renderer.appendChild(this.div.nativeElement, p);
+    */
 
   }
 
   onDisplayToggle(event: any){
-    // console.log('onDisplayToggle()');
+    // how many times was the button clicked?
+    var count = this.buttonPressLog.length + 1;
+    // toggle the boolean value
     this.doDisplayParagraph = !this.doDisplayParagraph;
-    // console.log(' - this.doDisplayParagraph ' + this.doDisplayParagraph);
+    // log it!
     this.logHandler();
-    
   }
 
   ordinal(n) {
